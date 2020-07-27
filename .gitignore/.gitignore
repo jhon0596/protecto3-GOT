@@ -1,0 +1,236 @@
+# # Ignorar archivos temporales de Visual Studio, resultados de compilación y
+# # archivos generados por complementos populares de Visual Studio.
+
+# Archivos específicos del usuario
+* .suo
+* .user
+* .userosscache
+* .sln.docstates
+
+# Archivos específicos del usuario (MonoDevelop / Xamarin Studio)
+* .userprefs
+
+# Resultados de construcción
+[ Dd ] ebug /
+[ Dd ] ebugPublic /
+[ Rr ] elease /
+[ Rr ] elimina /
+x64 /
+x86 /
+bld /
+[ Bb ] en /
+[ Oo ] bj /
+
+# Visual Studio 2015 directorio caché / opciones
+.vs /
+# Descomente si tiene tareas que crean los archivos estáticos del proyecto en wwwroot
+# wwwroot /
+
+# Resultados de la prueba MSTest
+[ Tt ] est [ Rr ] esult * /
+[ Bb ] uild [ Ll ] og. * *
+
+# NUNIT
+* .VisualState.xml
+TestResult.xml
+
+# Construir resultados de un proyecto ATL
+[ Dd ] ebugPS /
+[ Rr ] eleasePS /
+dlldata.c
+
+# DNX
+project.lock.json
+artefactos /
+
+* _i.c
+* _p.c
+* _i.h
+* .ilk
+* .meta
+* .obj
+* .pch
+* .pdb
+* .pgc
+* .pgd
+* .rsp
+* .sbr
+* .tlb
+* .tli
+* .tlh
+* .tmp
+* .tmp_proj
+* .log
+* .vspscc
+* .vssscc
+construcciones
+* .pidb
+* .svclog
+* .scc
+
+# Chutzpah Test files
+_Chutzpah *
+
+# Visual C ++ archivos de caché
+ipch /
+* .aps
+* .ncb
+* .opendb
+* .opensdf
+* .sdf
+* .cachefile
+
+# Visual Studio profiler
+* .psess
+* .vsp
+* .vspx
+* .sap
+
+# TFS 2012 Espacio de trabajo local
+$ tf /
+
+# Kit de herramientas de automatización de orientación
+* .gpState
+
+# ReSharper es un complemento de codificación .NET
+_ReSharper * /
+* . [ Rr ] e [ Ss ] harper
+* .DotSettings.user
+
+# JustCode es un complemento de codificación .NET
+.JustCode
+
+# TeamCity es un complemento de compilación
+_TeamCity *
+
+# DotCover es una herramienta de cobertura de código
+* .dotCover
+
+# NCrunch
+_NCrunch_ *
+. * crunch * .local.xml
+nCrunchTemp_ *
+
+# MightyMoose
+* .mm. * *
+AutoTest.Net /
+
+# Banco de trabajo web (sass)
+.sass-cache /
+
+# Carpeta de salida de Installshield
+[ Ee ] xpress /
+
+# DocProject es un complemento generador de documentación
+DocProject / buildhelp /
+DocProject / Help / * .HxT
+DocProject / Ayuda / * .HxC
+DocProject / Help / * .hhc
+DocProject / Help / * .hhk
+DocProject / Help / * .hhp
+DocProject / Ayuda / Html2
+DocProject / Ayuda / html
+
+# Directorio Click-Once
+publicar /
+
+# Publicar salida web
+* . [ Pp ] ublish.xml
+* .azurePubxml
+# TODO: comente la siguiente línea si desea registrar la configuración de implementación web
+# pero las cadenas de conexión de la base de datos (con posibles contraseñas) no se cifrarán
+* .pubxml
+* .publishproj
+
+# Paquetes NuGet
+* .nupkg
+# La carpeta de paquetes se puede ignorar debido a Restaurar paquete
+** / paquetes / *
+# excepto build /, que se usa como un objetivo de MSBuild.
+! ** / paquetes / compilación /
+# Descomente si es necesario, pero generalmente se regenerará cuando sea necesario
+# ! ** / packages / repositories.config
+# Los archivos project.json de NuGet v3 producen archivos más ignorables
+* .nuget.props
+* .nuget.targets
+
+# Salida de compilación de Microsoft Azure
+csx /
+* .build.csdef
+
+# Microsoft Azure Emulator
+ecf /
+rcf /
+
+# Archivo de configuración de Microsoft Azure ApplicationInsights
+ApplicationInsights.config
+
+# Directorio de paquetes de aplicaciones de la Tienda Windows
+AppPackages /
+BundleArtifacts /
+
+# Visual Studio archivos de caché
+# los archivos que terminan en .cache pueden ignorarse
+* . [ Cc ] dolor
+# pero realiza un seguimiento de los directorios que terminan en .cache
+! * . [ Cc ] dolor /
+
+# Otros
+ClientBin /
+~ $ *
+* ~
+* .dbmdl
+* .dbproj.schemaview
+* .pfx
+* .publishsettings
+node_modules /
+orleans.codegen.cs
+
+# Proyectos RIA / Silverlight
+Código_generado /
+
+# Copia de seguridad y archivos de informes de la conversión de un archivo de proyecto antiguo
+# a una versión más nueva de Visual Studio. No se necesitan archivos de respaldo,
+# porque tenemos git ;-)
+_UpgradeReport_Files /
+Copia de seguridad * /
+UpgradeLog * .XML
+UpgradeLog * .htm
+
+# Archivos de SQL Server
+* .mdf
+* .ldf
+
+# Proyectos de inteligencia empresarial
+* .rdl.data
+* .bim.layout
+* .bim_ * .settings
+
+# Microsoft falsifica
+FakesAssemblies /
+
+# GhostDoc archivo de configuración del complemento
+* .GhostDoc.xml
+
+# Node.js Herramientas para Visual Studio
+.ntvs_analysis.dat
+
+# Registro de compilación de Visual Studio 6
+* .plg
+
+# Visual Studio 6 archivo de opciones de espacio de trabajo
+* .opt
+
+# Salida de compilación de Visual Studio LightSwitch
+** / * .HTMLClient / GeneratedArtifacts
+** / * .DesktopClient / GeneratedArtifacts
+** / * .DesktopClient / ModelManifest.xml
+** / *. Servidor / Artefactos Generados
+** / * .Server / ModelManifest.xml
+_Pvt_Extensions
+
+# Gerente de dependencia de paquetes
+.paket / paket.exe
+
+# FALSO - F # Hacer
+.fake /
