@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GOTRestAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +23,11 @@ namespace GOTRestAPI.Controllers
         }
 
         // POST: api/Repositorio
-        public void Post([FromBody]string value)
+        public long Post([FromBody]Repositorio value)
         {
+            RepositorioPersistence ap = new RepositorioPersistence();
+            long id = ap.guardarRepositorio(value);
+            return id;
         }
 
         // PUT: api/Repositorio/5

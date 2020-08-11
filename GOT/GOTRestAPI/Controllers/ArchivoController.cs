@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GOTRestAPI.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -22,8 +23,11 @@ namespace GOTRestAPI.Controllers
         }
 
         // POST: api/Archivo
-        public void Post([FromBody]string value)
+        public long Post([FromBody]Archivo value)
         {
+            ArchivoPersistence ap = new ArchivoPersistence();
+            long id = ap.guardarArchivo(value);
+            return id;
         }
 
         // PUT: api/Archivo/5
