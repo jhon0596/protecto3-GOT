@@ -11,9 +11,9 @@ namespace GOTRestAPI.Controllers
     public class ArchivoAntiguoController : ApiController
     {
         // GET: api/ArchivoAntiguo
-        public IEnumerable<string> Get()
+        public IEnumerable<ArchivoAntiguo> Get()
         {
-            return new string[] { "value1", "value2" };
+            return new ArchivoAntiguo[] { };
         }
 
         // GET: api/ArchivoAntiguo/5
@@ -23,22 +23,10 @@ namespace GOTRestAPI.Controllers
         }
 
         // POST: api/ArchivoAntiguo
-        public long Post([FromBody] Archivo value)
-        {
-            ArchivoPersistence ap = new ArchivoPersistence();
-            long id = ap.guardarArchivo(value);
-            return id;
 
-        }
 
-        // PUT: api/ArchivoAntiguo/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
 
-        // DELETE: api/ArchivoAntiguo/5
-        public void Delete(int id)
-        {
-        }
+
+
     }
 }

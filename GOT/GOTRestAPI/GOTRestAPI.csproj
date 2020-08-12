@@ -134,12 +134,15 @@
     <Compile Include="ArchivoPersistence.cs" />
     <Compile Include="Controllers\ArchivoAntiguoController.cs" />
     <Compile Include="Controllers\ArchivoController.cs" />
+    <Compile Include="Controllers\ListaArchivosAntiguosController.cs" />
     <Compile Include="Controllers\RepositorioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="ListaArchivosAntiguosPersistence.cs" />
     <Compile Include="Models\Archivo.cs" />
     <Compile Include="Models\ArchivoAntiguo.cs" />
+    <Compile Include="Models\ListaArchivosAntiguos.cs" />
     <Compile Include="Models\Repositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositorioPersistence.cs" />

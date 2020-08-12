@@ -40,20 +40,54 @@ namespace GOTRestAPI
             long id = cmd.LastInsertedId;
             return id;
         }
-
-        public long guardarArchivoAntiguo(Archivo archivo)
+        public void guardarArchivoEditado(Archivo archivo)
         {
-            string guardarListaCambios = "INSERT INTO listacambios (nombreListaCambios) VALUES('" + "listaCambios" + archivo.nombreArchivo + "')";
+            ArchivoAntiguo archivoAntiguo = new ArchivoAntiguo();
+            string guardarListaCambios = "SELECT * FROM archivo WHERE idarchivo =" + archivo.nombreArchivo;
+            MySqlDataReader mySqlDataReader = null;
             MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
-            cmd1.ExecuteNonQuery();
-            long idListaCambios = cmd1.LastInsertedId;
+            mySqlDataReader = cmd1.ExecuteReader();
+            if (mySqlDataReader.Read()) {
+
+                archivoAntiguo.nombreArchivoAntiguo = mySqlDataReader.GetString(1);
+                archivoAntiguo.tipoArchivoAntiguo = mySqlDataReader.GetString(2);
+                archivoAntiguo.dataArchivoAntiguo = mySqlDataReader.GetString(3);
+                archivoAntiguo.idListaCambios = mySqlDataReader.GetInt32(4);
+            }
 
 
-            string guardarArchivo = "INSERT INTO archivo (nombreArchivo, tipoArchivo, Data ,ListaCambios_idListaCambios,repositorio_idrepositorio ) VALUES('" + archivo.nombreArchivo + "','" + archivo.tipoArchivo + "','" + archivo.dataArchivo + "','" + idListaCambios + "','" + archivo.idRepositorio + "')";
+            string guardarArchivoAntiguo = "INSERT INTO archivoestadoantiguo (NombreArchivoEstadoAntiguocol, tipoArchivoEstadoAntiguo, Data ,ListaCambios_idListaCambios) VALUES('" + archivoAntiguo.nombreArchivoAntiguo + "','" + archivoAntiguo.tipoArchivoAntiguo + "','" + archivoAntiguo.dataArchivoAntiguo + "','" + archivoAntiguo.idListaCambios + "')";
+            MySqlCommand cmd2 = new MySqlCommand(guardarArchivoAntiguo, conexionDB);
+            cmd2.ExecuteNonQuery();
+            long idArchivoAntiguo = cmd2.LastInsertedId;
+
+
+            string guardarArchivo = "UPDATE archivo SET Data = '" + archivo.dataArchivo + "' WHERE nombreArchivo ='" + archivo.nombreArchivo + "' ";
             MySqlCommand cmd = new MySqlCommand(guardarArchivo, conexionDB);
             cmd.ExecuteNonQuery();
-            long id = cmd.LastInsertedId;
-            return id;
+            
+            
+            
         }
+
+        public List<string> obtenerArchivos()
+        {
+            List<string> listaArchivos = new List<string>();
+            string guardarListaCambios = "SELECT * FROM archivo WHERE idarchivo =" + archivo.nombreArchivo;
+            MySqlDataReader mySqlDataReader = null;
+            MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
+            mySqlDataReader = cmd1.ExecuteReader();
+            for (int i = 0; i< mySqlDataReader.FieldCount; i++)
+            {
+
+                listaArchivos.Add(mySqlDataReader.GetString(i));
+                
+
+            }
+            return listaArchivos;
+
+        }
+
+
     }
 }
