@@ -1,0 +1,3 @@
+﻿  GOT.cpp
+C:\Users\grero\source\repos\GOT\GOT\GOT.cpp(73,23): warning C4018: '<': signed/unsigned mismatch
+  GOT.vcxproj -> C:\Users\grero\source\repos\GOT\Debug\GOT.exe
