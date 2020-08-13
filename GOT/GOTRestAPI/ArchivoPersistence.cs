@@ -43,7 +43,7 @@ namespace GOTRestAPI
         public void guardarArchivoEditado(Archivo archivo)
         {
             ArchivoAntiguo archivoAntiguo = new ArchivoAntiguo();
-            string guardarListaCambios = "SELECT * FROM archivo WHERE idarchivo =" + archivo.nombreArchivo;
+            string guardarListaCambios = "SELECT * FROM archivo WHERE nombreArchivo =" + archivo.nombreArchivo;
             MySqlDataReader mySqlDataReader = null;
             MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
             mySqlDataReader = cmd1.ExecuteReader();
@@ -73,7 +73,7 @@ namespace GOTRestAPI
         public List<string> obtenerArchivos()
         {
             List<string> listaArchivos = new List<string>();
-            string guardarListaCambios = "SELECT * FROM archivo WHERE idarchivo =" + archivo.nombreArchivo;
+            string guardarListaCambios = "SELECT * FROM archivo";
             MySqlDataReader mySqlDataReader = null;
             MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
             mySqlDataReader = cmd1.ExecuteReader();
@@ -85,6 +85,31 @@ namespace GOTRestAPI
 
             }
             return listaArchivos;
+
+        }
+        public List<string> obtenerArchivo(int id)
+        {
+            List<string> listaArchivo = new List<string>();
+            string guardarListaCambios = "SELECT * FROM archivo WHERE idarchivo =" + id;
+            MySqlDataReader mySqlDataReader = null;
+            MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
+            mySqlDataReader = cmd1.ExecuteReader();
+            for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+            {
+
+                listaArchivo.Add(mySqlDataReader.GetString(i));
+
+
+            }
+            return listaArchivo;
+
+        }
+        public void eliminarArchivo(int id)
+        {
+
+            string eliminarArchivo = "DELETE FROM  archivo WHERE idarchivo =" + id;
+            MySqlCommand cmd = new MySqlCommand(eliminarArchivo, conexionDB);
+            cmd.ExecuteNonQuery();
 
         }
 

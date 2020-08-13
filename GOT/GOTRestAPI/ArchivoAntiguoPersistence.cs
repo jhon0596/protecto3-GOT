@@ -24,6 +24,39 @@ namespace GOTRestAPI
             }
 
         }
-        
+        public List<string> obtenerArchivosAntiguos()
+        {
+            List<string> listaArchivosAntiguos = new List<string>();
+            string guardarListaCambios = "SELECT * FROM archivoestadoantiguo";
+            MySqlDataReader mySqlDataReader = null;
+            MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
+            mySqlDataReader = cmd1.ExecuteReader();
+            for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+            {
+
+                listaArchivosAntiguos.Add(mySqlDataReader.GetString(i));
+
+
+            }
+            return listaArchivosAntiguos;
+
+        }
+        public List<string> obtenerArchivoAntiguo(int id)
+        {
+            List<string> listaArchivoAntiguo = new List<string>();
+            string guardarListaCambios = "SELECT * FROM archivoestadoantiguo WHERE idarchivoEstadoAntiguo =" + id;
+            MySqlDataReader mySqlDataReader = null;
+            MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
+            mySqlDataReader = cmd1.ExecuteReader();
+            for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+            {
+
+                listaArchivoAntiguo.Add(mySqlDataReader.GetString(i));
+
+
+            }
+            return listaArchivoAntiguo;
+
+        }
     }
 }
