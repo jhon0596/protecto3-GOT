@@ -11,21 +11,21 @@ namespace GOTRestAPI.Controllers
     public class ArchivoController : ApiController
     {
         // GET: api/Archivo
-        public IEnumerable<string> Get()
+        public IEnumerable<Archivo> Get()
         {
             ArchivoPersistence ap = new ArchivoPersistence();
-            List<string> listaArchivos = ap.obtenerArchivos();
+            List<Archivo> listaArchivos = ap.obtenerArchivos();
             return listaArchivos;
 
 
         }
 
         // GET: api/Archivo/5
-        public IEnumerable<string> Get(int id)
+        public Archivo Get(int id)
         {
             ArchivoPersistence ap = new ArchivoPersistence();
-            List<string> listaArchivo = ap.obtenerArchivo(id);
-            return listaArchivo;
+            Archivo archivo = ap.obtenerArchivo(id);
+            return archivo;
         }
 
         // POST: api/Archivo
@@ -49,7 +49,7 @@ namespace GOTRestAPI.Controllers
         public void Delete(int id)
         {
             ArchivoPersistence ap = new ArchivoPersistence();
-            ap.guardarArchivoEditado(value);
+            ap.eliminarArchivo(id);
         }
     }
 }

@@ -24,38 +24,49 @@ namespace GOTRestAPI
             }
 
         }
-        public List<string> obtenerArchivosAntiguos()
+        public List<ArchivoAntiguo> obtenerArchivosAntiguos()
         {
-            List<string> listaArchivosAntiguos = new List<string>();
+            List<ArchivoAntiguo> listaArchivosAntiguos = new List<ArchivoAntiguo>();
             string guardarListaCambios = "SELECT * FROM archivoestadoantiguo";
             MySqlDataReader mySqlDataReader = null;
             MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
             mySqlDataReader = cmd1.ExecuteReader();
-            for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+            while (mySqlDataReader.Read())
             {
+                ArchivoAntiguo archivo = new ArchivoAntiguo();
+                archivo.idArchivoAntiguo = mySqlDataReader.GetUInt32(0);
+                archivo.nombreArchivoAntiguo = mySqlDataReader.GetString(1);
+                archivo.tipoArchivoAntiguo = mySqlDataReader.GetString(2);
+                archivo.dataArchivoAntiguo = mySqlDataReader.GetString(3);
+                archivo.idListaCambios = mySqlDataReader.GetInt32(4);
+                archivo.idRepositorio = mySqlDataReader.GetInt32(5);
 
-                listaArchivosAntiguos.Add(mySqlDataReader.GetString(i));
-
-
+                listaArchivosAntiguos.Add(archivo);
             }
+            mySqlDataReader.Close();
             return listaArchivosAntiguos;
 
         }
-        public List<string> obtenerArchivoAntiguo(int id)
+        public ArchivoAntiguo obtenerArchivoAntiguo(int id)
         {
-            List<string> listaArchivoAntiguo = new List<string>();
+            ArchivoAntiguo archivoAntiguo = new ArchivoAntiguo();
             string guardarListaCambios = "SELECT * FROM archivoestadoantiguo WHERE idarchivoEstadoAntiguo =" + id;
             MySqlDataReader mySqlDataReader = null;
             MySqlCommand cmd1 = new MySqlCommand(guardarListaCambios, conexionDB);
             mySqlDataReader = cmd1.ExecuteReader();
-            for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+            while (mySqlDataReader.Read())
             {
 
-                listaArchivoAntiguo.Add(mySqlDataReader.GetString(i));
+                archivoAntiguo.idArchivoAntiguo = mySqlDataReader.GetUInt32(0);
+                archivoAntiguo.nombreArchivoAntiguo = mySqlDataReader.GetString(1);
+                archivoAntiguo.tipoArchivoAntiguo = mySqlDataReader.GetString(2);
+                archivoAntiguo.dataArchivoAntiguo = mySqlDataReader.GetString(3);
+                archivoAntiguo.idListaCambios = mySqlDataReader.GetInt32(4);
+                archivoAntiguo.idRepositorio = mySqlDataReader.GetInt32(5);
 
 
             }
-            return listaArchivoAntiguo;
+            return archivoAntiguo;
 
         }
     }

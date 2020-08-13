@@ -11,19 +11,19 @@ namespace GOTRestAPI.Controllers
     public class ArchivoAntiguoController : ApiController
     {
         // GET: api/ArchivoAntiguo
-        public IEnumerable<string> Get()
+        public IEnumerable<ArchivoAntiguo> Get()
         {
             ArchivoAntiguoPersistence aap = new ArchivoAntiguoPersistence();
-            List<string> listaArchivosAntiguos = aap.obtenerArchivosAntiguos();
+            List<ArchivoAntiguo> listaArchivosAntiguos = aap.obtenerArchivosAntiguos();
             return listaArchivosAntiguos;
         }
 
         // GET: api/ArchivoAntiguo/5
-        public IEnumerable<string> Get(int id)
+        public ArchivoAntiguo Get(int id)
         {
             ArchivoAntiguoPersistence aap = new ArchivoAntiguoPersistence();
-            List<string> listaArchivosAntiguo = aap.obtenerArchivoAntiguo(id);
-            return listaArchivosAntiguo;
+            ArchivoAntiguo archivoAntiguo  = aap.obtenerArchivoAntiguo(id);
+            return archivoAntiguo;
         }
 
    

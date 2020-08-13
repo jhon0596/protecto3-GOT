@@ -9,6 +9,7 @@ namespace GOTRestAPI
 {
     public class RepositorioPersistence
     {
+        long cantRepositorio = 1;
         private MySqlConnection conexionDB;
 
         public RepositorioPersistence()
@@ -28,11 +29,11 @@ namespace GOTRestAPI
 
         public long guardarRepositorio(Repositorio repositorio)
         {
-            string guardarRepositorio = "INSERT INTO repositorio (nombreRepositorio, cantCommit) VALUES('" + repositorio.nombreRepositorio + "','" + repositorio.cantCambios + "')";
+            string guardarRepositorio = "INSERT INTO repositorio (idrepositorio,nombreRepositorio, cantCommit) VALUES('" + cantRepositorio + "','" + repositorio.nombreRepositorio + "','" + repositorio.cantCambios + "')";
             MySqlCommand cmd = new MySqlCommand(guardarRepositorio, conexionDB);
             cmd.ExecuteNonQuery();
-            long id = cmd.LastInsertedId;
-            return id;
+            cantRepositorio++;
+            return cantRepositorio -1;
         }
     }
 }

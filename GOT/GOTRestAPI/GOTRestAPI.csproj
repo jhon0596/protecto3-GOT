@@ -139,6 +139,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Huffman.cs" />
     <Compile Include="ListaArchivosAntiguosPersistence.cs" />
     <Compile Include="Models\Archivo.cs" />
     <Compile Include="Models\ArchivoAntiguo.cs" />
